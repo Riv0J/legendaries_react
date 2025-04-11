@@ -225,7 +225,7 @@ h2{
 section{
     display: flex;
     flex-direction: column;
-    margin-top: 3rem;
+    margin-top: 6rem;
 }
 p {
     color: white;
