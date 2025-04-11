@@ -5,8 +5,8 @@
 npm create vite@latest projec-name --template react
 in the project's folder, run
 
-npm install
-npm run dev
+- npm install
+- npm run dev
 
 ## Create components and insert them
 
@@ -17,12 +17,12 @@ npm run dev
 ## Production build
 
 Compile the genertaed code using
-npm run build
+- npm run build
 
 ## Serve production dist
 
 To serve the generated code, use
-serve -s dist
+- serve -s dist
 
 ## Show demo in Github Pages 
 
