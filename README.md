@@ -24,11 +24,21 @@ npm run build
 To serve the generated code, use
 serve -s dist
 
-
 ## Show demo in Github Pages 
 
-Make sure to have installed:
-npm install gh-pages --save-dev
+Make sure to have installed git and set up the git remote set-url origin, and follow these:
+- npm install gh-pages --save-dev
+
+Add to package.json
+- "homepage": "http://Riv0J.github.io/legendaries_react",
+- "name": "legendaries_react",
+
+Add to "scripts"
+- "predeploy": "npm run build",
+- "deploy": "gh-pages -d dist",
+
+And run
+- npm run deploy
 
 # React + Vite
 
