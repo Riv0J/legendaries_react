@@ -694,6 +694,9 @@ footer nav a{
     justify-content: center;
     padding: 2rem;
 }
+.glow{
+    box-shadow: 0px 0px 20px 5px var(--color-accent-backdrop);
+}
 .gradient-border-dark::after{
     content: '';
     position: absolute;

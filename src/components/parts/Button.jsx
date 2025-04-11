@@ -1,6 +1,6 @@
-function Button({ text }) {
+function Button({ text, glow }) {
     return (
-        <button className="button-app">
+        <button className={`button-app ${glow ? 'glow' : ''}`}>
             <span className="button-app-content">{text}</span>
         </button>
     );

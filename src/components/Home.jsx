@@ -24,6 +24,9 @@ function Home() {
             <p style={{width: "60%", color: "white"}}>
                 "Legendaries" is a collection of characters rooted in the history of various civilizations, across different time periods. While some are widely believed to have existed, their existence has never been definitively proven.
             </p>
+            <div>
+                <Button text="Take the quiz" glow={true}/>
+            </div>
 
         </section>
         <Window 
@@ -35,6 +38,10 @@ function Home() {
         <section className="divider"></section>
 
         <Mega/>
+
+        <section>
+            <Button text="View gallery" glow={true}/>
+        </section>
 
         <section className="divider"></section>
         <Window

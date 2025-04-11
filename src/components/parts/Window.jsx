@@ -2,7 +2,7 @@ import './window.css'
 
 function Window({ title, text, image, right }) {
     return (
-        <section className="window-section">
+        <section className="window-section glow">
             <img src={image} alt={title} className="window-image" />
             <article className={`bg-bricks window-article ${right ? 'window-article-right' : 'window-article-left'}`}>
                 <div className="window-content">
