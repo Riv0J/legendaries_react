@@ -4,10 +4,10 @@ Github pages preview here: [Legendaries in Github Pages](https://riv0j.github.io
 
 ## ⚙️ Steps to create a React project with Vite
 
-Create the project  
-- `npm create vite@latest projec-name --template react`
+Create the project:
+- `npm create vite@latest project-name --template react`
 
-Move to the project's folder, run  
+Move to the project's folder and run:
 - `npm install`  
 - `npm run dev`
 

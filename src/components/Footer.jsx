@@ -18,7 +18,7 @@ function Footer() {
         </div>
         <nav class="footer-section">
             <a href="https://github.com/Riv0J" id="madeby">Made by Rovani</a>
-            <a href="https://github.com/Riv0J/legendaries_demo" target="_blank">
+            <a href="https://github.com/Riv0J/legendaries_react" target="_blank">
                 <img src="icons/github.webp" alt="github" class="icon"></img>
                 Github Repo
             </a>

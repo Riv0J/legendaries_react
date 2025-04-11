@@ -10,7 +10,7 @@ function Header() {
             <a href="home" id="anchor-home">Home</a>
             <a href="index.html">Gallery</a>
             <a href="#">Quiz</a>
-            <a href="https://github.com/Riv0J/legendaries_demo" target="_blank">Repo</a>
+            <a href="https://github.com/Riv0J/legendaries_react" target="_blank">Repo</a>
         </nav>
     </header>
     )
