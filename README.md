@@ -42,5 +42,8 @@ Add to `"scripts"`
 - `"predeploy": "npm run build",`  
 - `"deploy": "gh-pages -d dist",`
 
-And run  
+Add repo name to `"defineConfig"` in `vite.config.js`
+- `base: '/legendaries_react/',`
+
+And finally, run
 - `npm run deploy`

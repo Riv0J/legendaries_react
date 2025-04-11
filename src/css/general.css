@@ -71,13 +71,16 @@ button, .button-app-content{
 .button-app:hover::before{
     transform: scaleX(1) scaleY(1.4);
 }
-.link-app{
+.button-app-big{
+    scale: 1.3;
+}
+.button-link-app{
     border: none;
     color: var(--color-font);
     cursor: pointer;
     text-decoration: underline;
 }
-.link-app:hover{
+.button-link-app:hover{
     font-style: italic;
 }
 main{

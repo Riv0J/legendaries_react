@@ -25,7 +25,6 @@
     font-family: "Berkshire";
     font-size: 1.75rem;
 }
-
 @media screen and (min-width:1200px) {
     .window-article{
         position: absolute !important;
@@ -45,7 +44,7 @@
 
 @media screen and (max-width:1200px) {
     .window-section{
-        width: 70%;
+        width: 80%;
     }
     .window-article{
         padding: 1.5rem;
