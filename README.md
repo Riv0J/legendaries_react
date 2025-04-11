@@ -24,6 +24,12 @@ npm run build
 To serve the generated code, use
 serve -s dist
 
+
+## Show demo in Github Pages 
+
+Make sure to have installed:
+npm install gh-pages --save-dev
+
 # React + Vite
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
