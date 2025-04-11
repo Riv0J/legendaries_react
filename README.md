@@ -17,12 +17,10 @@ Move to the project's folder, run
 
 ## 🏗️ Production build
 
-Compile the generated code using  
+Compile the optimized code using  
 - `npm run build`
 
-## 🌐 Serve production dist
-
-To serve the generated code, use  
+To serve the generated code, use
 - `serve -s dist`
 
 ## 🚀 Show demo in GitHub Pages 
