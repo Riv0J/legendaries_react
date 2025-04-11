@@ -28,7 +28,7 @@ To serve the generated code, use
 ## 🚀 Show demo in GitHub Pages 
 
 Set up/install git  
-- `git remote set-url origin`  
+- `git remote set-url origin https://<TOKEN>@github.com/<USER>/<REPO>.git`  
 - `git init`
 
 Install GitHub Pages  

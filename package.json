@@ -1,7 +1,7 @@
 {
-  "homepage": "http://Riv0J.github.io/legendaries_react",
+  "homepage": "https://riv0j.github.io/legendaries_react",
   "name": "legendaries_react",
-  "private": true,
+  "private": false,
   "version": "0.0.0",
   "type": "module",
   "scripts": {
