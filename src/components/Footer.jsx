@@ -4,7 +4,7 @@ function Footer() {
     <footer class="gradient-border-top">
         <div>
             <a class="link-brand" href="#">
-                <img src="/src/assets/helm.webp" alt="Myths Logo"></img>
+                <img src="helm.webp" alt="Myths Logo"></img>
                 <span>Legendaries</span>
             </a>
         </div>
@@ -19,7 +19,7 @@ function Footer() {
         <nav class="footer-section">
             <a href="https://github.com/Riv0J" id="madeby">Made by Rovani</a>
             <a href="https://github.com/Riv0J/legendaries_demo" target="_blank">
-                <img src="/src/assets/icons/github.webp" alt="github" class="icon"></img>
+                <img src="icons/github.webp" alt="github" class="icon"></img>
                 Github Repo
             </a>
             <span>

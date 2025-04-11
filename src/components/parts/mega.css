@@ -17,7 +17,7 @@
 .mega-bg{
     width: 100%;
     height: 200vh;
-    background-image: url("/src/assets/img/mega_low.webp");
+    background-image: url("/img/mega_low.webp");
     background-size: contain;
     background-repeat: repeat;
     background-position: center;

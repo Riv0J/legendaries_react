@@ -642,7 +642,7 @@ footer nav a{
     position: relative;
     width: 100%;
     height: 85svh;
-    background-image: url("/src/assets/img/partenon.jpg");
+    background-image: url("/img/partenon.jpg");
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;

@@ -3,7 +3,7 @@ function Header() {
     return (
     <header className="gradient-border">
         <a className="link-brand" href="#">
-            <img src="/src/assets/helm.webp" alt="Myths Logo"></img>
+            <img src="helm.webp" alt="Myths Logo"></img>
             <span>Legendaries</span>
         </a>
         <nav>

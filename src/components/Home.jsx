@@ -29,7 +29,7 @@ function Home() {
         <Window 
             title="Not all legends walked among us" 
             text="Throughout history, tales of heroes, kings, and monstruous creatures have amazed generations — but some of them were never written in the real records." 
-            image="src/assets/img/giza.webp"
+            image="img/giza.webp"
         />
 
         <section className="divider"></section>
@@ -40,7 +40,7 @@ function Home() {
         <Window
             title="Can you tell myth from reality?"
             text="Some legendary figures were real people whose stories were magnified through time, while others were entirely popular myths. Uncover which ones were real, and the ones that lived in stories and epic tales."
-            image="src/assets/img/reims.webp"
+            image="img/reims.webp"
             right={true}
         />
     </>
