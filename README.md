@@ -1,5 +1,7 @@
 # ⚔️ Legendaries, made with Vite + React
 
+Github pages preview here: [Legendaries in Github Pages](https://riv0j.github.io/legendaries_react/)
+
 ## ⚙️ Steps to create a React project with Vite
 
 Create the project  
