@@ -26,7 +26,7 @@ function Home() {
                 "Legendaries" is a collection of characters rooted in the history of various civilizations, across different time periods. While some are widely believed to have existed, their existence has never been definitively proven.
             </p>
             <div className="my-2">
-                <Button text="Take the quiz" glow={true}/>
+                <Button text="Take the quiz" glow={true} className="button-app-big mt-4"/>
             </div>
         </section>
 
