@@ -1,15 +1,16 @@
+import { Link } from 'react-router-dom'
 
 function Header() {
     return (
     <header className="gradient-border">
-        <a className="link-brand" href="#">
+        <Link className="link-brand" to="/">
             <img src="helm.webp" alt="Myths Logo"></img>
             <span>Legendaries</span>
-        </a>
+        </Link>
         <nav>
-            <a href="home" id="anchor-home">Home</a>
-            <a href="index.html">Gallery</a>
-            <a href="#">Quiz</a>
+            <Link to="/" id="anchor-home">Home</Link>
+            <Link to="/gallery">Gallery</Link>
+            <Link to="/quiz">Quiz</Link>
             <a href="https://github.com/Riv0J/legendaries_react" target="_blank">Repo</a>
         </nav>
     </header>

@@ -6,7 +6,8 @@ import Mega from "./parts/Mega.jsx";
 
 import "/src/css/home.css";
 
-function Home() {
+export default function Home() {
+    console.log('Rendering Home')
     return (
     <>
         <Headline text="Remember legends from the past" showBanners={false} />
@@ -55,5 +56,3 @@ function Home() {
     </>
     )
 }
-
-export default Home
