@@ -6,11 +6,15 @@ import Mega from "./parts/Mega.jsx";
 
 import "/src/css/home.css";
 
+import giza from '/src/assets/giza.webp';
+import reims from '/src/assets/reims.webp';
+
 export default function Home() {
     console.log('Rendering Home')
     return (
     <>
         <Headline text="Remember legends from the past" showBanners={false} />
+
         <div className="main-cover gradient-border-dark">
             <div className="cover-content gap-2">
                 <h2 className="berkshire backdrop">Do you know any legendary figures from the past?</h2>
@@ -34,7 +38,8 @@ export default function Home() {
         <Window 
             title="Not all legends walked among us" 
             text="Throughout history, tales of heroes, kings, and monstruous creatures have amazed generations — but some of them were never written in the real records." 
-            image="img/giza.webp"
+            image={giza}
+            alt="Pyramids of Giza, Egypt"
         />
 
         <section className="divider"></section>
@@ -50,7 +55,8 @@ export default function Home() {
         <Window
             title="Can you tell myth from reality?"
             text="Some legendary figures were real people whose stories were magnified through time, while others were entirely popular myths. Uncover which ones were real, and the ones that lived in stories and epic tales."
-            image="img/reims.webp"
+            image={reims}
+            alt="Reims Cathedral, France"
             right={true}
         />
     </>

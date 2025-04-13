@@ -5,15 +5,15 @@ function Headline({ text, showBanners }) {
             {showBanners && (
                 <div id="banners-container">
                     <div className="banner" id="banner-all">
-                        <img src="/src/assets/textures/b_1.webp" alt="" />
+                        <img src="textures/b_1.webp" alt="Banner All" />
                         <div className="banner-icon"></div>
                     </div>
                     <div className="banner" id="banner-beast">
-                        <img src="/src/assets/textures/b_1.webp" alt="" />
+                        <img src="textures/b_1.webp" alt="Banner Beast" />
                         <div className="banner-icon"></div>
                     </div>
                     <div className="banner" id="banner-human">
-                        <img src="/src/assets/textures/b_1.webp" alt="" />
+                        <img src="textures/b_1.webp" alt="Banner Human" />
                         <div className="banner-icon"></div>
                     </div>
                 </div>

@@ -1,9 +1,9 @@
 #banner-all .banner-icon{
-    background-image: url('src/assets/icons/lambda_gold.webp');
+    background-image: url('/icons/lambda_gold.webp');
 }
 #banner-beast .banner-icon{
-    background-image: url('src/assets/icons/beast_gold.webp');
+    background-image: url('/icons/beast_gold.webp');
 }
 #banner-human .banner-icon{
-    background-image: url('src/assets/icons/hand_gold.webp');
+    background-image: url('/icons/hand_gold.webp');
 }

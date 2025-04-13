@@ -107,7 +107,7 @@ main{
     top: 0%;
     width: 32px;
     height: 100%;
-    background-image: url('../assets/textures/greek_vertical.webp');
+    background-image: url('/textures/greek_vertical.webp');
     background-size: contain;
     filter: invert(70%) sepia(100%) saturate(300%) hue-rotate(355deg);
     opacity: 0.85;
@@ -186,23 +186,12 @@ header nav{
 .bg-bricks{
     position: relative;
 }
-.bg-romboids{
-    position: relative;
-}
-.bg-romboids::before{
-    content: '';
-    position: absolute;
-    inset: 0;
-    background-size: 7rem;
-    background-image: url('../assets/textures/romboids.webp');
-    opacity: 0.5;
-}
 .bg-bricks::before{
     content: '';
     position: absolute;
     inset: 0;
     background-size: 7rem;
-    background-image: url('../assets/textures/bricks.webp');
+    background-image: url('/textures/bricks.webp');
     opacity: 0.5;
 }
 
