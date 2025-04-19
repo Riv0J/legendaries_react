@@ -74,15 +74,11 @@
 
 .card {
     opacity: 0;
-    transition: translate 0.25s ease-in-out, scale 0.2s ease-in-out, opacity 0.5s ease-out;
-    translate: 0 -5%;
+    transition: translate 0.25s ease-in-out;
 }
-
-.card.visible {
+.card:hover{
+    translate: 0 -4%
+}
+.card-visible{
     opacity: 1;
-    translate: 0;
-}
-
-.card:hover {
-    translate: 0 -5%;
 }

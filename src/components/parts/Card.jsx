@@ -1,32 +1,43 @@
 import "./card.css";
 import { useEffect, useState } from "react";
 
-export default function Card({ creature , id }) {
-    let [flipStatus, setFlipStatus] = useState("initial");
-    console.log("STATUS: "+flipStatus);
+export default function Card({ creature, id, status, delay }) {
+    let [flipStatus, setFlipStatus] = useState(status || "initial");
     
+    console.log("STATUS: "+flipStatus);
+    //ciclo es initial => card-flipped => card-flip-back
+
     function onClickCard(){
         switch (flipStatus) {
+            case "flipped":
+                setFlipStatus("flip-back");
+                break;
             case "initial":
             case "flip-back":
                 setFlipStatus("flipped");
                 break;
-            case "flipped":
-                setFlipStatus("flip-back");
-                break;
             default:
                 break;
         }
-        //ciclo es initial => card-flipped => card-flip-back
     }
     
     let flipClass = "";
-    if(flipStatus == "flipped"){
-        flipClass = "card-flipped visible"
-    }else if(flipStatus == "flip-back"){
-        flipClass = "card-flip-back visible"
+    switch (flipStatus) {
+        case "initial":
+            flipClass = "card-appear"
+            break;
+        case "flipped":
+            flipClass = "card-flipped"
+            break;
+        case "flip-back":
+            flipClass = "card-flip-back"
+            break;
+        default:
+            break;
     }
-
+    if(flipStatus != "hidden" && flipStatus != "initial"){
+        flipClass += " card-visible"
+    }
     const {
         name,
         title,
@@ -37,6 +48,15 @@ export default function Card({ creature , id }) {
         description,
         category
     } = creature;
+
+    useEffect(() => {
+        const timer = setTimeout(() => {
+            console.log(delay);
+            setFlipStatus("initial");
+        }, delay);
+    
+        return () => clearTimeout(timer);
+    }, [delay]);
 
     return (
         <div key={flipStatus} className={`card card-${category} card-${period} ${flipClass}`} id={`card-${id}`} onClick={() => onClickCard()}>
