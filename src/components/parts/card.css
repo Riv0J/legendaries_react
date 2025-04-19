@@ -222,3 +222,55 @@
 .card-back-description{
     margin: 0;
 }
+.card-flipped{
+    animation: 1s flip forwards;
+}
+.card-flipped .card-markings,
+.card-flipped .card-content
+{
+    animation: hide 0.2s forwards;
+    animation-delay: 0.2s;
+    
+}
+.card-flipped .card-back{
+    animation: show 0.5s forwards;
+    animation-delay: 0.5s;
+}
+.card-flip-back{
+    animation: 1s flip forwards;
+    animation-delay: 0.5s;
+}
+.card-flip-back .card-markings,
+.card-flip-back .card-content
+{
+    visibility: hidden;
+    animation: show 0.2s forwards;
+    animation-delay: 0.75s;
+}
+.card-flip-back .card-back{
+    visibility: visible;
+    animation: hide 0.5s forwards;
+    animation-delay: 0.2s;
+}
+
+@keyframes hide{
+    to{
+        visibility: hidden;
+    }
+}
+@keyframes show{
+    to{
+        visibility: visible;
+    }
+}
+@keyframes flip{
+    0%{
+        scale: 1 1;
+    }
+    50%{
+        scale: 0 1;
+    }
+    100%{
+        scale: 1 1;
+    }
+}

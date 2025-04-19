@@ -1,7 +1,32 @@
 import "./card.css";
+import { useEffect, useState } from "react";
 
 export default function Card({ creature , id }) {
-    console.log("creating card")
+    let [flipStatus, setFlipStatus] = useState("initial");
+    console.log("STATUS: "+flipStatus);
+    
+    function onClickCard(){
+        switch (flipStatus) {
+            case "initial":
+            case "flip-back":
+                setFlipStatus("flipped");
+                break;
+            case "flipped":
+                setFlipStatus("flip-back");
+                break;
+            default:
+                break;
+        }
+        //ciclo es initial => card-flipped => card-flip-back
+    }
+    
+    let flipClass = "";
+    if(flipStatus == "flipped"){
+        flipClass = "card-flipped visible"
+    }else if(flipStatus == "flip-back"){
+        flipClass = "card-flip-back visible"
+    }
+
     const {
         name,
         title,
@@ -14,7 +39,7 @@ export default function Card({ creature , id }) {
     } = creature;
 
     return (
-        <div className={`card card-${category} card-${period}`} id={`card-${id}`}>
+        <div key={flipStatus} className={`card card-${category} card-${period} ${flipClass}`} id={`card-${id}`} onClick={() => onClickCard()}>
             <div className="card-background"></div>
             <div className="card-markings">
                 <div className="card-markings-bottom">
@@ -27,7 +52,7 @@ export default function Card({ creature , id }) {
                     className="card-img"
                     style={{ backgroundImage: `url(${img})` }}
                 >
-                    <span className={`card-name`}>{name}</span>
+                    <span className={`card-name ${name.length > 10 ? "card-name-small" : ""}`}>{name}</span>
                     <div className="card-name-banner"></div>
                 </div>
                 <p className="card-title">{title}</p>

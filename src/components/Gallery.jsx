@@ -8,26 +8,14 @@ import { useEffect, useState } from "react";
 
 export default function Gallery() {
     console.log('Rendering Gallery')
-    const [filter, setFilter] = useState("all");
+    // cuando cambia un useState, se vuelve a renderizar
+    const [categoryFilter, setCategoryFilter] = useState("all");
 
-    const filteredCreatures = creatures.filter(c =>
-        filter === "all" ? true : c.category === filter
-    );
-    //buttons #banner-all #banner-beast #banner-human
-
-    // useEffect(() => {
-    //     let i = 0;
-    //     setDisplayedCreatures([]); // Resetea las cartas
-
-    //     const interval = setInterval(() => {
-    //         setDisplayedCreatures(prev => {
-    //             const next = [...prev, filteredCreatures[i]];
-    //             i++;
-    //             if (i >= filteredCreatures.length) clearInterval(interval);
-    //             return next;
-    //         });
-    //     }, 100); // Delay entre cartas
-    // }, [filter]);
+    // tomamos el use state para aplicar el filtro
+    const filteredCreatures = creatures.filter(creature => {
+        if (categoryFilter === "all") return true;
+        return creature.category === categoryFilter;
+    });
 
     let i = 0;
     const interval = setInterval(() => {
@@ -43,8 +31,8 @@ export default function Gallery() {
 
     return (
         <>
-            <Headline text="Gallery" showBanners={true} />
-            <div id="cards">
+            <Headline text="Gallery" showBanners={true} onFilterChange={setCategoryFilter} />
+            <div id="cards" key={categoryFilter}>
                 {filteredCreatures.map((creature, i) => (
                     <Card key={i} creature={creature} id={i}/>
                 ))}
