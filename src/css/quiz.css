@@ -1,1 +1,56 @@
-#
+.card{
+    min-width: 250px
+}
+#swipe-container{
+    width: 100%;
+    background-color: rgba(101, 255, 114, 0.448);
+    padding-block: 2rem;
+    cursor: pointer;
+    position: relative;
+}
+#card-container{
+    width: min-content;
+    margin: 0 auto;
+}
+.swiping-right {
+    animation: swipe-right 1s forwards ease-in-out !important;
+}
+.quiz-result{
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    translate: -50% -50%;
+    background-color: gray;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 90%;
+    padding: 1rem;
+    border: 1px solid gray;
+}
+@keyframes swipe-right {
+    0% {
+    }
+    25% {
+        transform: rotateZ(5deg);
+    }
+    100% {
+        translate: 200% 0;
+    }
+}
+.swiping-left{
+    animation: swipe-left 1s forwards ease-in-out !important;
+}
+
+@keyframes swipe-left {
+    0%{
+    }
+    25%{
+        transform: rotateZ(-5deg);
+    }
+    100%{
+        
+        translate: -200% 0;
+    }
+}

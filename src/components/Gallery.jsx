@@ -17,18 +17,6 @@ export default function Gallery() {
         return creature.category === categoryFilter;
     });
 
-    // let i = 0;
-    // const interval = setInterval(() => {
-    //     const card = document.querySelector("#card-" + i);
-    //     if (card) {
-    //         card.classList.add('visible');
-    //         i++;
-    //         if (i >= filteredCreatures.length) {
-    //             clearInterval(interval);
-    //         }
-    //     }
-    // }, 100);
-
     return (
         <>
             <Headline text="Gallery" showBanners={true} onFilterChange={setCategoryFilter} />

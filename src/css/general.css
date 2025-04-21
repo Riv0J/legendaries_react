@@ -412,9 +412,6 @@ footer nav a{
     transition: all 0.25s;
     cursor: pointer;
 }
-.card:hover{
-    transform: translateY(-3%);
-}
 .card::after{
     content: '';
     position: absolute;

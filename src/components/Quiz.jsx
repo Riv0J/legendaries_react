@@ -3,30 +3,107 @@
 import "/src/css/quiz.css";
 import creatures from "../data/creatures.js";
 
+import Button from "./parts/Button.jsx";
 import Card from "./parts/Card.jsx";
+import { useState, useMemo, useEffect, useRef } from "react";
 
-import { useEffect, useState } from "react";
+// Función para barajar y tomar 10 aleatorios
+function getRandomCreatures(count = 10) {
+    const shuffled = [...creatures].sort(() => Math.random() - 0.5);
+    return shuffled.slice(0, count);
+}
 
 export default function Quiz() {
+    const [quiz_status, set_quiz_status] = useState("answering");
+    let index = useRef(0);
+    let score = useRef(0);
+    let is_correct = useRef(false);
+    
+    const randomCreatures = useMemo(() => {
+        return getRandomCreatures();
+    }, []);
+    const current_creature = randomCreatures[index.current];
+    console.log(current_creature);
 
-    const [categoryFilter, setCategoryFilter] = useState("all");
+    function process_answer(answer){
+        if(index.current == randomCreatures.length){
+            console.log("FINISH!");
+            return;
+        }
+        console.log("NEXT");
+        if(answer == current_creature.myth){
+            console.log("---- CORRECT!");
+            score.current++;
+            console.log(score.current);
+        } else{
+            console.log("--- INCORRECT");
+        }
+        is_correct.current = answer == current_creature.myth;
+        set_quiz_status("show-result");
+    }
+    function onNextClick(){
+        index.current++;
+        set_quiz_status("answering");
+    }
 
+    function is_answering(){
+        return quiz_status == "answering";
+    }
+    /*                        */
+    const startX = useRef(null);
+    const handlePointerDown = (e) => {
+        if(!is_answering()){ return };
+        startX.current = e.clientX;
+        console.log("STARTX "+startX.current);
+    };
+    const handlePointerUp = (e) => {
+        if(!is_answering()){ return };
+        const endX = e.clientX;
+        const deltaX = endX - startX.current;
+        console.log("delta: "+deltaX);
+        
+        const threshold = 100 * 0.25;
+        if (Math.abs(deltaX) >= threshold) {
+            let answer = 0;
+            if (deltaX > 0) {
+                console.log("Swipe RIGHT");
+                set_quiz_status("swiping-right");
+            } else {
+                console.log("Swipe LEFT");
+                set_quiz_status("swiping-left");
+                answer = 1;
+            }
+
+            setTimeout(() =>{
+                process_answer(answer);
+            }, 500);
+        }
+    };
+    console.log(quiz_status);
+    
     return (
         <>
             <h2>Quiz Page</h2>
-            <div id="quiz_container">
-                {/* {[...Array(5)].map((_, i) => (
-                    
-                ))} */}
+            <div>{index.current+1}/{randomCreatures.length}</div>
+            <div>SWIPE LEFT FOR MYTH OR RIGHT FOR HISTORY</div>
+            <div id="swipe-container"
+                    onPointerDown={handlePointerDown}
+                    onPointerUp={handlePointerUp}>
+                <div id="card-container" className={`${quiz_status.includes("swiping") ? quiz_status : "" }`}>
+                    <Card creature={current_creature} id={index.current} status={"initial"} quiz_mode={true} />
+                </div>
 
-                <Card key={1} creature={creatures[0]} id={1}/>
+                {quiz_status == "show-result" && (
+                <div className={`quiz-result glow`}>
+                    {is_correct.current ? "✔️ Correct!" : "❌ Incorrect!"}
+                    <h2>{current_creature.name}</h2>
+                    <h3>{current_creature.myth ? "Mythical" : "Historical"}</h3>
+                    <p>{current_creature.description}</p>
+                    <Button text="Next Legend" onClick={onNextClick}/>
+                </div>
+                )}
+
             </div>
-            <style>
-                #quiz_container{
-                    
-                }
-            </style>
         </>
     );
 }
-

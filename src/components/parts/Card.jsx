@@ -1,13 +1,14 @@
 import "./card.css";
 import { useEffect, useState } from "react";
 
-export default function Card({ creature, id, status, delay }) {
-    let [flipStatus, setFlipStatus] = useState(status || "initial");
+export default function Card({ creature, id, status, delay, quiz_mode }) {
+    let [flipStatus, setFlipStatus] = useState(status);
     
-    console.log("STATUS: "+flipStatus);
+    console.log("CARD STATUS: "+flipStatus);
     //ciclo es initial => card-flipped => card-flip-back
 
-    function onClickCard(){
+    function onClickCard_Gallery(){
+        if (quiz_mode) return;
         switch (flipStatus) {
             case "flipped":
                 setFlipStatus("flip-back");
@@ -20,7 +21,7 @@ export default function Card({ creature, id, status, delay }) {
                 break;
         }
     }
-    
+
     let flipClass = "";
     switch (flipStatus) {
         case "initial":
@@ -31,6 +32,12 @@ export default function Card({ creature, id, status, delay }) {
             break;
         case "flip-back":
             flipClass = "card-flip-back"
+            break;
+        case "swipe-right":
+            flipClass = "card-swipe-right"
+            break;
+        case "swipe-left":
+            flipClass = "card-swipe-left"
             break;
         default:
             break;
@@ -50,16 +57,23 @@ export default function Card({ creature, id, status, delay }) {
     } = creature;
 
     useEffect(() => {
+        setFlipStatus(status);
+    }, [status]);
+    
+    useEffect(() => {
         const timer = setTimeout(() => {
+            if(status == "hidden"){
+                setFlipStatus("initial");
+            }
             console.log(delay);
-            setFlipStatus("initial");
+            
         }, delay);
     
         return () => clearTimeout(timer);
     }, [delay]);
 
     return (
-        <div key={flipStatus} className={`card card-${category} card-${period} ${flipClass}`} id={`card-${id}`} onClick={() => onClickCard()}>
+        <div key={flipStatus} className={`card card-${category} card-${period} ${flipClass} ${quiz_mode ? "card-quiz" : ""}`} id={`card-${id}`} onClick={() => onClickCard_Gallery()}>
             <div className="card-background"></div>
             <div className="card-markings">
                 <div className="card-markings-bottom">
@@ -77,12 +91,14 @@ export default function Card({ creature, id, status, delay }) {
                 </div>
                 <p className="card-title">{title}</p>
             </div>
+            {!quiz_mode && (
             <div className="card-back">
                 <span className="card-back-name">{name}</span>
                 <span className="card-back-myth">{myth ? "Mythical" : "Historical"}</span>
                 <p className="card-back-description">{description}</p>
                 <div className="card-back-markings"></div>
             </div>
+            )}
         </div>
     );
 }
