@@ -13,7 +13,7 @@ export default function Home() {
     console.log('Rendering Home')
     return (
     <>
-        <Headline text="Remember legends from the past" showBanners={false} />
+        <Headline text="Remember legends from the past" showBanners={false}/>
 
         <div className="main-cover gradient-border-dark">
             <div className="cover-content gap-2">

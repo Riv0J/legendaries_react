@@ -140,7 +140,6 @@ header, footer{
 .gradient-border, .gradient-border-top{
     position: relative;
 }
-
 .gradient-border::after{
     content: "";
     position: absolute;
@@ -194,7 +193,18 @@ header nav{
     background-image: url('/textures/bricks.webp');
     opacity: 0.5;
 }
-
+.bg-blue-alone{
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(90deg, var(--color-secondary-fade) 0%, var(--color-secondary) 50%, var(--color-secondary-fade) 100%);
+}
+.bg-bricks-alone{
+    position: absolute;
+    inset: 0;
+    background-size: 7rem;
+    background-image: url('/textures/bricks.webp');
+    opacity: 0.5;
+}
 h1{ 
     text-align: center;
     letter-spacing: 0.1rem;
@@ -210,7 +220,13 @@ h1{
 h2{
     margin-top: 0;
 }
-
+h3{
+    margin: 0;
+    font-size: 2rem;
+    font-family: "Almendra";
+    letter-spacing: 0.1rem;
+    text-align: center;
+}
 section{
     display: flex;
     flex-direction: column;
@@ -301,6 +317,19 @@ p {
     background: linear-gradient(90deg, rgba(255,255,255,0) 0%, rgba(255,255,255,0.45) 50%, rgba(255,255,255,0) 100%);
     clip-path: polygon(100% 0, 100% 75%, 50% 100%, 0% 75%, 0 0);
     animation: hg 6s infinite alternate-reverse;
+}
+i{  
+    display: flex;
+    width: 1.5rem;
+    aspect-ratio: 1;
+    background-position: center;
+    background-size: cover;
+}
+.icon-check{
+    background-image: url('/icons/check.webp');
+}
+.icon-x{
+    background-image: url('/icons/x.webp');
 }
 .banner-icon{
     position: absolute;

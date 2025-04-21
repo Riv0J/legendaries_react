@@ -1,12 +1,12 @@
 import './headline.css'
 
-function Headline({ text, showBanners, onFilterChange }) {
+function Headline({ text, showBanners, onFilterChange, classes }) {
     const handleClick = (category) => {
         if (onFilterChange) onFilterChange(category);
     };
 
     return (
-        <article className={`w-100 main-article bg-bricks gradient-border ${showBanners ? 'article-banners' : ''}`}>
+        <article className={`w-100 main-article bg-bricks gradient-border ${showBanners ? 'article-banners' : ''} ${classes}`}>
             {showBanners && (
                 <div id="banners-container">
                     <div className="banner" id="banner-all" onClick={() => handleClick("all")}>

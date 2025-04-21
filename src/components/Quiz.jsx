@@ -3,6 +3,7 @@
 import "/src/css/quiz.css";
 import creatures from "../data/creatures.js";
 
+import Headline from "./parts/Headline.jsx";
 import Button from "./parts/Button.jsx";
 import Card from "./parts/Card.jsx";
 import { useState, useMemo, useEffect, useRef } from "react";
@@ -14,6 +15,7 @@ function getRandomCreatures(count = 10) {
 }
 
 export default function Quiz() {
+    document.querySelector('footer').style.display = "none";
     const [quiz_status, set_quiz_status] = useState("answering");
     let index = useRef(0);
     let score = useRef(0);
@@ -76,7 +78,7 @@ export default function Quiz() {
 
             setTimeout(() =>{
                 process_answer(answer);
-            }, 500);
+            }, 600);
         }
     };
     console.log(quiz_status);
@@ -95,11 +97,30 @@ export default function Quiz() {
 
                 {quiz_status == "show-result" && (
                 <div className={`quiz-result glow`}>
-                    {is_correct.current ? "✔️ Correct!" : "❌ Incorrect!"}
-                    <h2>{current_creature.name}</h2>
-                    <h3>{current_creature.myth ? "Mythical" : "Historical"}</h3>
-                    <p>{current_creature.description}</p>
-                    <Button text="Next Legend" onClick={onNextClick}/>
+                    
+                    <div className="quiz-result-title  gradient-border-top gradient-border">
+                        <div className="bg-blue-alone"></div>
+                        <div className="bg-bricks-alone"></div>
+                        <h3>{current_creature.myth ? "Mythical" : "Historical"}</h3>
+                    </div>
+                    <div className="quiz-result-content">
+                        <span className="quiz-result-result">
+                            <i className={is_correct.current ? 'icon-check' : 'icon-x'} />
+                            {is_correct.current ? 'Correct' : 'Incorrect'}
+                        </span>
+                        <div className="card-content">
+                            <div
+                                className="card-img"
+                                style={{ backgroundImage: `url(${current_creature.img})` }}
+                            >
+                                <span className={`card-name ${current_creature.name.length > 10 ? "card-name-small" : ""}`}>{current_creature.name}</span>
+                                <div className="card-name-banner"></div>
+                            </div>
+                        </div>
+                        
+                        <p>{current_creature.description}</p>
+                        <Button text="Next Legend" onClick={onNextClick}/>
+                    </div>
                 </div>
                 )}
 

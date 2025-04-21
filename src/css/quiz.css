@@ -1,5 +1,9 @@
-.card{
-    min-width: 250px
+#swipe-container .card{
+    min-width: 250px;
+    aspect-ratio: 0.7;
+}
+#swipe-container .card .card-title{
+    font-size: 1.25rem;
 }
 #swipe-container{
     width: 100%;
@@ -7,31 +11,92 @@
     padding-block: 2rem;
     cursor: pointer;
     position: relative;
+    height: 70vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 #card-container{
     width: min-content;
     margin: 0 auto;
-}
-.swiping-right {
-    animation: swipe-right 1s forwards ease-in-out !important;
+    width: 60%;
 }
 .quiz-result{
     position: absolute;
     left: 50%;
     top: 50%;
     translate: -50% -50%;
-    background-color: gray;
+    background-color: rgb(52, 52, 52);
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    width: 90%;
-    padding: 1rem;
-    border: 1px solid gray;
+    width: 70%;
+    padding: 2%;
+    border: 0.1rem solid white;
+    border-radius: 0.5rem;
+    animation: quiz-appear 0.2s forwards ease-in;
+    user-select: none;
+}
+@keyframes quiz-appear {
+    from{
+        scale: 0.5;
+    }
+    to{
+        scale: 1;
+    }
+}
+.quiz-result .card-content{
+    padding-top: 0;
+}
+.quiz-result .card-img {
+    max-width: 250px;
+}
+.quiz-result-title{
+    position: relative;
+    padding-block: 2%;
+    width: 100%;
+    transform: scaleX(1.07);
+    margin-block: 2%;
+}
+.quiz-result-title h3{
+    position: relative;
+    z-index: 999;
+}
+.quiz-result-result{
+    display: inline-flex;
+    gap: 0.5rem;
+    align-items: center;
+    font-size: 1.25rem;
+    outline: 1px solid white;
+    padding: 2%;
+    padding-inline: 4%;
+    animation: bounce 1s alternate infinite ease-in-out;
+    border-radius: 0.5rem;
+}
+@keyframes bounce {
+    from{
+        scale: 1;
+    }
+    to{
+        scale: 1.1;
+    }
+}
+.quiz-result-content{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 1rem
+}
+.quiz-result p {
+    margin-bottom: 2rem;
+}
+.swiping-right {
+    animation: swipe-right 1s forwards ease-in-out !important;
 }
 @keyframes swipe-right {
-    0% {
-    }
     25% {
         transform: rotateZ(5deg);
     }
@@ -40,17 +105,21 @@
     }
 }
 .swiping-left{
-    animation: swipe-left 1s forwards ease-in-out !important;
+    animation: swipe-left 1s forwards ease-in !important;
 }
-
 @keyframes swipe-left {
-    0%{
-    }
     25%{
         transform: rotateZ(-5deg);
     }
     100%{
         
         translate: -200% 0;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .card-title {
+        width: 80%;
+        font-size: 1rem;
     }
 }
