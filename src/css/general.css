@@ -91,7 +91,6 @@ main{
 #main-background {
     position: absolute;
     inset: 0;
-    min-height: 95svh;
     --s: 16px;
     --c1: #000000;
     --c2: #101010;
@@ -330,6 +329,15 @@ i{
 }
 .icon-x{
     background-image: url('/icons/x.webp');
+}
+.icon-chevron-right{
+    width: 1rem;
+    background-image: url('/icons/chevron.webp');
+}
+.icon-chevron-left{
+    width: 1rem;
+    background-image: url('/icons/chevron.webp');
+    rotate: 180deg;
 }
 .banner-icon{
     position: absolute;
@@ -683,6 +691,9 @@ footer nav a{
 }
 .w-100{
     width: 100%;
+}
+.mt-0{
+    margin-top: 0;
 }
 .mt-4{
     margin-top: 2rem;

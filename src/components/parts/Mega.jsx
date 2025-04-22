@@ -1,10 +1,10 @@
 import Button from "./Button.jsx";
 import './mega.css'
 
-function Mega({buttonText, onButtonClick, showCounter, counterText}) {
+function Mega({buttonText, onButtonClick, showCounter, counterText, classes }) {
     return (
         <>
-            <section className="mega-container gradient-border gradient-border-top">
+            <section className={`mega-container gradient-border gradient-border-top ${classes}`}>
 
                 {showCounter && (
                     <div className="quiz-score-container backdrop">
