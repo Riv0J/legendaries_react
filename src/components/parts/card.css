@@ -45,7 +45,7 @@
     content: '';
     position: absolute;
     inset: 0;
-    background-image: url('textures/card_1.webp');
+    background-image: url('/textures/card_1.webp');
     background-size: cover;
     background-position: center;
 }
@@ -156,7 +156,7 @@
     width: 120%;
     height: 3rem;
     scale: 1.25;
-    background: url('textures/banner_1.webp');
+    background: url('/textures/banner_1.webp');
     background-position: center;
     background-repeat: no-repeat;
     background-size: contain;
@@ -178,19 +178,19 @@
     margin-block: 1.5rem;
 }
 .card-worn-1 .card-background::after{
-    background-image: url('textures/card_1.webp');
+    background-image: url('/textures/card_1.webp');
 }
 .card-worn-2 .card-background::after{
-    background-image: url('textures/card_2.webp'); 
+    background-image: url('/textures/card_2.webp'); 
 }
 .card-worn-3 .card-background::after{
-    background-image: url('textures/card_3.webp'); 
+    background-image: url('/textures/card_3.webp'); 
 }
 .card-worn-4 .card-background::after{
-    background-image: url('textures/card_4.webp'); 
+    background-image: url('/textures/card_4.webp'); 
 }
 .card-worn-4 .card-background::after{
-    background-image: url('textures/card_5.webp'); 
+    background-image: url('/textures/card_5.webp'); 
 }
 .card-back{
     position: absolute;
