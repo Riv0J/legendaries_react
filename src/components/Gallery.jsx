@@ -1,5 +1,6 @@
 import Headline from "./parts/Headline.jsx";
 import Card from "./parts/Card.jsx";
+import ScrollToTop from "./parts/ScrollToTop";
 
 import "/src/css/gallery.css";
 import creatures from "../data/creatures.js";
@@ -19,6 +20,7 @@ export default function Gallery() {
 
     return (
         <>
+            <ScrollToTop/>
             <Headline text="Gallery" showBanners={true} onFilterChange={setCategoryFilter} />
             <div id="cards" key={categoryFilter}>
                 {filteredCreatures.map((creature, i) => (

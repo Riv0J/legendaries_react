@@ -1,17 +1,26 @@
 import Button from "./Button.jsx";
 import './mega.css'
 
-function Mega() {
+function Mega({buttonText, onButtonClick, showCounter, counterText}) {
     return (
-        <section className="mega-container gradient-border gradient-border-top">
-            <Button text="View gallery" glow={true} className="mega-center-button glow button-app-big"/>
+        <>
+            <section className="mega-container gradient-border gradient-border-top">
 
-            <div className="mega-wrapper">
-                <div className="mega-bg"></div>
-                <div className="mega-bg"></div>
+                {showCounter && (
+                    <div className="quiz-score-container backdrop">
+                        <span className="quiz-score-title">Score</span>
+                        <span className="quiz-score-number">{counterText}</span>
+                    </div>
+                )}
+                
+                <Button text={buttonText} glow={true} className="mega-center-button glow button-app-big" onClick={onButtonClick}/>
 
-            </div>
-        </section>
+                <div className="mega-wrapper">
+                    <div className="mega-bg"></div>
+                    <div className="mega-bg"></div>
+                </div>
+            </section>
+        </>
     );
 }
 export default Mega

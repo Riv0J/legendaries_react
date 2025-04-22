@@ -3,14 +3,23 @@ import Button from "./parts/Button.jsx";
 import ButtonLink from "./parts/ButtonLink.jsx";
 import Window from "./parts/Window.jsx";
 import Mega from "./parts/Mega.jsx";
-
 import "/src/css/home.css";
 
 import giza from '/src/assets/giza.webp';
 import reims from '/src/assets/reims.webp';
 
+import { useNavigate } from "react-router-dom";
+
 export default function Home() {
     console.log('Rendering Home')
+    const navigate = useNavigate();
+
+    function navigate_to_gallery(){
+        navigate("/gallery");
+    }
+    function navigate_to_quiz(){
+        navigate("/quiz");
+    }
     return (
     <>
         <Headline text="Remember legends from the past" showBanners={false}/>
@@ -19,8 +28,8 @@ export default function Home() {
             <div className="cover-content gap-2">
                 <h2 className="berkshire backdrop">Do you know any legendary figures from the past?</h2>
                 <div className="flex-row flex-center flex-wrap gap-4">
-                    <Button text="Test your knowledge"/>
-                    <ButtonLink text="I dont know any"/>
+                    <Button text="Test your knowledge" onClick={navigate_to_quiz}/>
+                    <ButtonLink text="I dont know any" onClick={navigate_to_gallery}/>
                 </div>
             </div>
         </div>
@@ -31,7 +40,7 @@ export default function Home() {
                 "Legendaries" is a collection of characters rooted in the history of various civilizations, across different time periods. While some are widely believed to have existed, their existence has never been definitively proven.
             </p>
             <div className="my-2">
-                <Button text="Take the quiz" glow={true} className="button-app-big mt-4"/>
+                <Button text="Take the quiz" glow={true} className="button-app-big mt-4" onClick={navigate_to_quiz}/>
             </div>
         </section>
 
@@ -44,7 +53,7 @@ export default function Home() {
 
         <section className="divider"></section>
 
-        <Mega/>
+        <Mega buttonText="View Gallery" onButtonClick={navigate_to_gallery}/>
 
         {/* <section>
             <Button text="View gallery" glow={true}/>

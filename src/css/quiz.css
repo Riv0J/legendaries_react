@@ -116,7 +116,22 @@
         translate: -200% 0;
     }
 }
-
+.quiz-score-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+    z-index: 100000;
+    padding: 2%;
+}
+.quiz-score-title{
+    font-size: 2rem;
+}
+.quiz-score-number{
+    font-family: monospace;
+    font-size: 3rem;
+}
 @media screen and (max-width: 600px) {
     .card-title {
         width: 80%;

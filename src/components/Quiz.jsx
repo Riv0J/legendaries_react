@@ -3,35 +3,35 @@
 import "/src/css/quiz.css";
 import creatures from "../data/creatures.js";
 
-import Headline from "./parts/Headline.jsx";
+import Mega from "./parts/Mega";
+import ScrollToTop from "./parts/ScrollToTop";
 import Button from "./parts/Button.jsx";
 import Card from "./parts/Card.jsx";
-import { useState, useMemo, useEffect, useRef } from "react";
 
-// Función para barajar y tomar 10 aleatorios
+import { useState, useMemo, useRef } from "react";
+
 function getRandomCreatures(count = 10) {
     const shuffled = [...creatures].sort(() => Math.random() - 0.5);
     return shuffled.slice(0, count);
 }
-
 export default function Quiz() {
-    document.querySelector('footer').style.display = "none";
+    const [randomCreatures, set_creatures] = useState(() => getRandomCreatures());
     const [quiz_status, set_quiz_status] = useState("answering");
     let index = useRef(0);
     let score = useRef(0);
     let is_correct = useRef(false);
-    
-    const randomCreatures = useMemo(() => {
-        return getRandomCreatures();
-    }, []);
+
+    function restart(){
+        index.current = 0;
+        score.current = 0;
+        set_quiz_status("answering");
+        set_creatures(getRandomCreatures());
+    }
+
     const current_creature = randomCreatures[index.current];
     console.log(current_creature);
 
     function process_answer(answer){
-        if(index.current == randomCreatures.length){
-            console.log("FINISH!");
-            return;
-        }
         console.log("NEXT");
         if(answer == current_creature.myth){
             console.log("---- CORRECT!");
@@ -45,33 +45,34 @@ export default function Quiz() {
     }
     function onNextClick(){
         index.current++;
-        set_quiz_status("answering");
+        if(index.current == randomCreatures.length){
+            set_quiz_status("finished");
+            console.log("FINISH!");
+        } else {
+            set_quiz_status("answering");
+        }
     }
 
     function is_answering(){
         return quiz_status == "answering";
     }
-    /*                        */
+
     const startX = useRef(null);
     const handlePointerDown = (e) => {
         if(!is_answering()){ return };
         startX.current = e.clientX;
-        console.log("STARTX "+startX.current);
     };
     const handlePointerUp = (e) => {
         if(!is_answering()){ return };
         const endX = e.clientX;
         const deltaX = endX - startX.current;
-        console.log("delta: "+deltaX);
         
         const threshold = 100 * 0.25;
         if (Math.abs(deltaX) >= threshold) {
             let answer = 0;
             if (deltaX > 0) {
-                console.log("Swipe RIGHT");
                 set_quiz_status("swiping-right");
             } else {
-                console.log("Swipe LEFT");
                 set_quiz_status("swiping-left");
                 answer = 1;
             }
@@ -85,15 +86,21 @@ export default function Quiz() {
     
     return (
         <>
+            <ScrollToTop/>
             <h2>Quiz Page</h2>
-            <div>{index.current+1}/{randomCreatures.length}</div>
-            <div>SWIPE LEFT FOR MYTH OR RIGHT FOR HISTORY</div>
-            <div id="swipe-container"
-                    onPointerDown={handlePointerDown}
-                    onPointerUp={handlePointerUp}>
-                <div id="card-container" className={`${quiz_status.includes("swiping") ? quiz_status : "" }`}>
-                    <Card creature={current_creature} id={index.current} status={"initial"} quiz_mode={true} />
+            {quiz_status != "finished" && (
+                <div>
+                    <div>{index.current+1}/{randomCreatures.length}</div>
+                    <div>SWIPE LEFT FOR MYTH OR RIGHT FOR HISTORY</div>
                 </div>
+            )}
+
+            <div id="swipe-container" onPointerDown={handlePointerDown} onPointerUp={handlePointerUp}>
+                {quiz_status != "finished" && (
+                    <div id="card-container" className={`${quiz_status.includes("swiping") ? quiz_status : "" }`}>
+                        <Card creature={current_creature} id={index.current} status={"initial"} quiz_mode={true} />
+                    </div>
+                )}
 
                 {quiz_status == "show-result" && (
                 <div className={`quiz-result glow`}>
@@ -109,8 +116,7 @@ export default function Quiz() {
                             {is_correct.current ? 'Correct' : 'Incorrect'}
                         </span>
                         <div className="card-content">
-                            <div
-                                className="card-img"
+                            <div className="card-img"
                                 style={{ backgroundImage: `url(${current_creature.img})` }}
                             >
                                 <span className={`card-name ${current_creature.name.length > 10 ? "card-name-small" : ""}`}>{current_creature.name}</span>
@@ -119,11 +125,15 @@ export default function Quiz() {
                         </div>
                         
                         <p>{current_creature.description}</p>
-                        <Button text="Next Legend" onClick={onNextClick}/>
+                        
+                        <Button text={index.current+1 == randomCreatures.length ? "Show Score" : "Next Legend" } onClick={onNextClick}/>
                     </div>
                 </div>
                 )}
-
+                {quiz_status == "finished" && (
+                    <Mega buttonText="Try again" onButtonClick={restart} showCounter={true} counterText={`${score.current}/10`}/>
+                )}
+                
             </div>
         </>
     );

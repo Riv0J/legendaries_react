@@ -1,6 +1,6 @@
-function ButtonLink({ text }) {
+function ButtonLink({ text, onClick }) {
     return (
-        <button className="button-link-app backdrop">
+        <button className="button-link-app backdrop" onClick={onClick}>
             {text}
         </button>
     );
