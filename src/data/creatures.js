@@ -28,7 +28,67 @@ const creatures = [
     { name: "Buddha", title: "The Enlightened One", myth: 1, category: "human", period: "ancient", img: "./creatures/buddha.webp", difficulty: 2, description: "Buddha was a spiritual teacher and founder of Buddhism, known for attaining enlightenment and sharing teachings on suffering, compassion, and the path to liberation." },
     { name: "Fenrir", title: "The Doom of the Gods", myth: 1, category: "beast", period: "ancient", img: "./creatures/fenrir.webp", difficulty: 1, description: "Fenrir is a monstrous wolf from Norse mythology, destined to break free during Ragnarok and bring destruction to the gods and the world." },
     { name: "Mahatma Gandhi", title: "The Father of the Nation", myth: 0, category: "human", period: "modern", img: "./creatures/gandhi.webp", difficulty: 1, description: "Mahatma Gandhi was a leader of the Indian independence movement who pioneered the philosophy of nonviolent resistance and civil disobedience, inspiring civil rights movements worldwide. He advocated for social reforms, religious harmony, and self-reliance."
-} 
+},
+{ 
+    name: "Grigori Rasputin", 
+    title: "The Mystic Healer of Russia", 
+    myth: 0, 
+    category: "human", 
+    period: "modern", 
+    img: "./creatures/rasputin.webp", 
+    difficulty: 3, 
+    description: "Grigori Rasputin was a Russian mystic and advisor to the Romanov family, famous for his controversial influence on the Russian monarchy and his enigmatic persona surrounded by rumors of healing powers, political manipulation, and assassination attempts."
+},
+{
+  name: "Nostradamus",
+  title: "The Seer of Prophecies",
+  myth: 1,
+  category: "human",
+  period: "modern",
+  img: "./creatures/nostradamus.webp",
+  difficulty: 3,
+  description: "Nostradamus was a French physician and astrologer renowned for his book of prophecies, which many believe predicted future events. His cryptic quatrains have been interpreted as mystical insights, fueling legends and speculation across centuries."
+},
+{
+  name: "Megaloceros",
+  title: "The Giant Irish Elk",
+  myth: 1,
+  category: "beast",
+  period: "ancient",
+  img: "./creatures/megaloceros.webp",
+  difficulty: 3,
+  description: "The Megaloceros was a massive prehistoric deer known for its enormous antlers spanning up to 3.5 meters. Often surrounded by myths and legends due to its impressive size, it roamed Eurasia during the last Ice Age before going extinct approximately 7,700 years ago."
+},
+{
+    name: "Basilisk",
+    title: "The Colossal Reptile",
+    myth: 1,
+    category: "beast",
+    period: "ancient",
+    img: "./creatures/basilisk.webp",
+    difficulty: 2,
+    description: "The Basilisk is a mythical reptile said to have a lethal gaze and deadly venom. Feared in medieval folklore, its legend may have been inspired by real venomous snakes, blurring the line between myth and reality."
+},
+{
+  name: "Chimera",
+  title: "The Fire-Breathing Monster",
+  myth: 1,
+  category: "beast",
+  period: "ancient",
+  img: "./creatures/chimera.webp",
+  difficulty: 1,
+  description: "The Chimera is a fearsome creature from Greek mythology with the body of a lion, a goat’s head on its back, and a serpent for a tail. Known for breathing fire, it represents chaos and destruction."
+},
+{
+  name: "Merlin",
+  title: "The Wizard of Camelot",
+  myth: 1,
+  category: "human",
+  period: "medieval",
+  img: "./creatures/merlin.webp",
+  difficulty: 1,
+  description: "Merlin is a legendary wizard and advisor to King Arthur in medieval lore. Though purely mythical, many tales treat him as a historical figure, blurring the lines between fact and legend."
+}
 ];
 
 export default creatures;

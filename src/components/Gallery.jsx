@@ -18,8 +18,11 @@ export default function Gallery() {
         return creature.category === categoryFilter;
     });
     if(categoryFilter === "all"){
-        filteredCreatures = filteredCreatures.sort(() => Math.random() - 0.5); // randomiza el orden
+        // filteredCreatures = filteredCreatures.sort(() => Math.random() - 0.5); // randomiza el orden
     }
+    const creatureNames = filteredCreatures.map(i => i.name);
+    console.log(creatureNames);
+    
 
     return (
         <>
