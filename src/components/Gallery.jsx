@@ -13,10 +13,13 @@ export default function Gallery() {
     const [categoryFilter, setCategoryFilter] = useState("all");
 
     // tomamos el use state para aplicar el filtro
-    const filteredCreatures = creatures.filter(creature => {
+    let filteredCreatures = creatures.filter(creature => {
         if (categoryFilter === "all") return true;
         return creature.category === categoryFilter;
     });
+    if(categoryFilter === "all"){
+        filteredCreatures = filteredCreatures.sort(() => Math.random() - 0.5); // randomiza el orden
+    }
 
     return (
         <>
