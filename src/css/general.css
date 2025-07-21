@@ -548,7 +548,6 @@ footer nav a{
     flex-direction: column;
     justify-content: space-around;
     align-items: center;
-    padding-block: 1rem;
 }
 .card-img {
     position: relative;
@@ -562,6 +561,7 @@ footer nav a{
     
     box-shadow: 0px 0px 65px 10px black;
     margin-block: 1rem;
+    margin-top: 3rem;
 
     display: flex;
     justify-content: center;
